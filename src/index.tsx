@@ -2,16 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { toast } from "react-toastify";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 import store from "redux-saga/store";
+import ScrollToTop from "components/ScrollTop";
 import App from "./App";
 import "./index.css";
+import "semantic-ui-css/semantic.min.css";
 
 //notification
 toast.configure();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

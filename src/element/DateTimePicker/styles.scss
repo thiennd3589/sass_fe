@@ -1,0 +1,40 @@
+.DateTimePicker {
+  width: 22rem;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  border: 1px solid #dbdbdb;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 16px #ececec;
+  border-radius: 5px;
+  padding: 0 10px;
+  i {
+    font-size: 2.2rem !important;
+  }
+  .Picker {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    label {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.2rem;
+      letter-spacing: 0.14px;
+    }
+    .field {
+      .ui.icon {
+        i {
+          display: none;
+        }
+        input {
+          border: none;
+          height: 100%;
+          padding: 0;
+          font-size: 1.2rem;
+          line-height: 1.78rem;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

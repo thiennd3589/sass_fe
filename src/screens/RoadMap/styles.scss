@@ -1,0 +1,47 @@
+.RoadMap {
+  width: 100%;
+  padding: 15px;
+  .CampaignList {
+    display: flex;
+    flex-wrap: wrap;
+
+    .Campaign {
+      min-width: 20%;
+      height: 5rem;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.CampaignModal {
+  span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: italic;
+  }
+  .DatePicker {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+}
+
+.Submit {
+  display: flex;
+  justify-content: flex-end;
+  .Button {
+    margin: 0 10px;
+    &:last-child {
+      background-color: #3751ff;
+      color: #fff;
+    }
+  }
+}

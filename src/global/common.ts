@@ -1,3 +1,4 @@
+import { Menu } from "interfaces/common";
 
 export enum LANG {
   EN = "en",
@@ -5,7 +6,7 @@ export enum LANG {
 }
 
 interface GlobalInterface {
-
+  menus: Menu[];
   //User
   isAuthenticated: boolean;
   user: {
@@ -14,6 +15,13 @@ interface GlobalInterface {
 }
 
 export let Global: GlobalInterface = {
+  menus: [
+    {
+      title: "Basic info",
+      route: "/basicInfo",
+      icon: "info circle",
+    },
+  ],
   //User
   isAuthenticated: false,
   user: {

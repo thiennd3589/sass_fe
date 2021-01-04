@@ -1,6 +1,6 @@
 import { AnyAction } from "redux";
 import { ToastOptions } from "react-toastify";
-
+import { SemanticICONS } from "semantic-ui-react/dist/commonjs/generic";
 
 export interface Obj {
   [key: string]: {} | undefined | null;
@@ -21,4 +21,11 @@ export interface Request<T> extends AnyAction {
   payload?: T;
   showNotification?: boolean;
   notification?: ToastOptions;
+}
+
+export interface Menu {
+  icon?: SemanticICONS;
+  title: string;
+  route?: string;
+  subMenu?: Menu[];
 }

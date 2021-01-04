@@ -1,0 +1,46 @@
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0 none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+  .Brand {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    span {
+      margin: 20px 25px;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-left: 10px;
+      color: #109cf1;
+      line-height: 2rem;
+    }
+    border-bottom: 1px solid #ebeff2;
+    width: 100%;
+  }
+
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .MenuItem {
+      font-size: 1.2rem;
+      font-weight: 400;
+      padding: 10px 25px;
+      color: #484848;
+      .MenuTitle {
+        display: flex;
+        justify-content: space-between;
+      }
+      &.Active {
+        background-color: #fff;
+      }
+      span {
+        margin-left: 15px;
+      }
+      i {
+        color: #bdbdbd;
+      }
+    }
+  }
+}
