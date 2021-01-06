@@ -3,6 +3,7 @@ import highchartsMore from "highcharts/highcharts-more.js";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts/highcharts-gantt";
 import draggable from "highcharts/modules/draggable-points";
+import noData from "highcharts/modules/no-data-to-display";
 import "./styles.scss";
 import { Obj } from "interfaces/common";
 import CustomButton from "element/Button";
@@ -10,6 +11,7 @@ import CustomButton from "element/Button";
 if (typeof Highcharts === "object") {
   highchartsMore(Highcharts);
   draggable(Highcharts);
+  noData(Highcharts);
 }
 
 interface GanttChartProps {
@@ -39,13 +41,14 @@ const GanttChart = (props: GanttChartProps) => {
 
   const onClick = (e: any) => {
     // Run in a timeout to allow the select to update
+    console.log(e);
     setTimeout(function () {
       if (e.target.selected) {
         count.current++;
       } else {
         count.current--;
       }
-
+      console.log(count.current);
       setState((prev) => ({
         ...prev,
         disabledRemove: count.current % 2 === 0 ? true : false,
@@ -68,13 +71,13 @@ const GanttChart = (props: GanttChartProps) => {
       zoomKey: "alt",
     },
 
-    title: {
-      text: "Interactive Gantt Chart",
-    },
+    // title: {
+    //   text: "Interactive Gantt Chart",
+    // },
 
-    subtitle: {
-      text: "Drag and drop points to edit",
-    },
+    // subtitle: {
+    //   text: "Drag and drop points to edit",
+    // },
 
     navigator: {
       enabled: true,
@@ -85,19 +88,21 @@ const GanttChart = (props: GanttChartProps) => {
         pointPadding: 0.25,
       },
       yAxis: {
-        min: 0,
-        max: 3,
         reversed: true,
         categories: [],
       },
     },
+
+    noData: {
+      useHtml: true,
+    },
     scrollbar: {
       enabled: true,
     },
-    rangeSelector: {
-      enabled: true,
-      selected: 0,
-    },
+    // rangeSelector: {
+    //   enabled: true,
+    //   selected: 0,
+    // },
 
     plotOptions: {
       series: {
@@ -136,6 +141,9 @@ const GanttChart = (props: GanttChartProps) => {
     xAxis: {
       currentDateIndicator: true,
       type: "datetime",
+      grid: {
+        enabled: true,
+      },
     },
 
     tooltip: {
@@ -152,7 +160,6 @@ const GanttChart = (props: GanttChartProps) => {
     ],
   };
 
-  // console.log(props.data);
 
   return (
     <div className="GanttChart">

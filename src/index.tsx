@@ -7,6 +7,7 @@ import store from "redux-saga/store";
 import ScrollToTop from "components/ScrollTop";
 import App from "./App";
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 import "semantic-ui-css/semantic.min.css";
 
 //notification

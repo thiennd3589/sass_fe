@@ -4,3 +4,13 @@
     background-color: #ddd;
   }
 }
+
+// .XAxis {
+//   display: none !important;
+// }
+
+.highcharts-axis-line {
+  &:first-child {
+    display: none !important;
+  }
+}

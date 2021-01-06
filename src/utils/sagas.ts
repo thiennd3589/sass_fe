@@ -1,9 +1,11 @@
 import Axios from "axios";
 import { Global } from "global";
-import { Obj, Request } from "interfaces/common";
+import { Action, Obj, Request } from "interfaces/common";
 import { put, takeEvery, takeLatest } from "redux-saga/effects";
 import { notificationError, notificationSuccess } from "./common";
-export const BASE_URI = "https://baselive.net/app/api/v1/";
+
+export const BASE_URI = "http://45.77.24.242/api/v1/";
+
 export enum REQUEST_METHOD {
   GET = "get",
   POST = "post",
@@ -160,4 +162,17 @@ export const handleRESTError = (response: Response) => {
     };
   }
   return response;
+};
+
+export const createReducer = (success: string, failure: string) => {
+  return (state: Obj | null = null, action: Action<Obj>) => {
+    switch (action.type) {
+      case success:
+        return { response: action.payload, success: true };
+      case failure:
+        return { response: action.payload, success: false };
+      default:
+        return state;
+    }
+  };
 };

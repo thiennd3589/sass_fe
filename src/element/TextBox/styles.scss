@@ -1,0 +1,48 @@
+.TextBox {
+  margin-bottom: 20px;
+
+  .Input {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dbdbdb;
+    width: 33rem;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0px 2px 16px #ececec;
+    border-radius: 5px;
+    background-color: white;
+    label {
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.14px;
+    }
+    input {
+      border: none;
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        font-weight: 200;
+      }
+    }
+
+    &:focus-within {
+      border: 1px solid #000;
+    }
+  }
+
+  &.Error {
+    .Input {
+      border-color: red;
+    }
+
+    .ErrorMessage {
+      font-size: 1rem;
+      color: red;
+    }
+  }
+}

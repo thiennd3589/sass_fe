@@ -31,12 +31,23 @@
       .MenuTitle {
         display: flex;
         justify-content: space-between;
+        .AddButton {
+          cursor: pointer;
+        }
+      }
+      .SubMenus {
+        margin: 10px;
+        margin-left: 30px;
+        span {
+          font-weight: 500;
+        }
       }
       &.Active {
         background-color: #fff;
       }
       span {
         margin-left: 15px;
+        font-weight: bolder;
       }
       i {
         color: #bdbdbd;

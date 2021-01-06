@@ -1,0 +1,50 @@
+.Login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  .FormGroup {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    .LoginForm,
+    .SignUp {
+      background-color: #fff;
+      padding: 3rem;
+      border-radius: 10px;
+      h1 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .Content {
+        > span {
+          text-align: right;
+          font-style: italic;
+          cursor: pointer;
+          display: inline-block;
+          width: 100%;
+
+          display: inline-block;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .Submit {
+        margin-top: 2rem;
+        justify-content: center;
+
+        .Button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

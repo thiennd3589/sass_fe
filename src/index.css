@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif !important;
@@ -20,4 +30,3 @@ h6,
 input {
   font-family: "Open Sans", sans-serif !important;
 }
-
