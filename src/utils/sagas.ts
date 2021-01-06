@@ -4,7 +4,7 @@ import { Action, Obj, Request } from "interfaces/common";
 import { put, takeEvery, takeLatest } from "redux-saga/effects";
 import { notificationError, notificationSuccess } from "./common";
 
-export const BASE_URI = "http://45.77.24.242/api/v1/";
+export const BASE_URI = "http://45.77.24.242/app/api/v1/";
 
 export enum REQUEST_METHOD {
   GET = "get",
