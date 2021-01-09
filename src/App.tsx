@@ -18,7 +18,7 @@ const App = () => {
   }, [Global.isAuthenticated]);
   return (
     <div className="App">
-      {Global.isAuthenticated && <Sidebar menus={Global.menus} />}{" "}
+      {Global.isAuthenticated && <Sidebar menus={Global.menus} />}
       <Switch>
         <Route
           exact

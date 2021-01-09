@@ -1,3 +1,11 @@
 .App {
   display: flex;
+
+  .Sidebar {
+    flex: 2;
+  }
+
+  .RoadMap {
+    flex: 7;
+  }
 }

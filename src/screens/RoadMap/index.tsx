@@ -2,7 +2,9 @@ import Timeline from "components/Timeline";
 import CustomButton from "element/Button";
 import DateTimePicker from "element/DateTimePicker";
 import { Obj } from "interfaces/common";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { shallowEqual, useSelector } from "react-redux";
+import { State } from "redux-saga/reducers";
 import { Modal } from "semantic-ui-react";
 import "./styles.scss";
 
@@ -97,7 +99,14 @@ const RoadMap = (props: RoadMapProps) => {
     },
   });
 
-  const [campaignList, setCampaignList] = useState(fakeData);
+  const { userProject } = useSelector(
+    (state: State) => ({
+      userProject: state.userProject,
+    }),
+    shallowEqual
+  );
+
+  const [campaignList, setCampaignList] = useState<Obj[]>([]);
 
   const onDateChange = (
     e: React.SyntheticEvent<HTMLElement, Event>,
@@ -123,6 +132,14 @@ const RoadMap = (props: RoadMapProps) => {
       },
     }));
   };
+
+  useEffect(() => {
+    if (userProject) {
+      if (userProject.success) {
+        setCampaignList((userProject.response as Obj).data as Obj[]);
+      }
+    }
+  }, [userProject]);
 
   const onRemoveCampaign = (name: string) => {
     setState((prev) => ({
@@ -152,17 +169,23 @@ const RoadMap = (props: RoadMapProps) => {
 
   return (
     <div className="RoadMap">
-      <div className="CampaignList">
-        {campaignList.map((campaign, index) => (
-          <CampaignItem
-            key={index}
-            name={campaign.name}
-            onDateChange={onDateChange}
-            onSubmit={onSubmit}
-          />
-        ))}
+      <div className="Background"></div>
+      <div className="Content">
+        <div className="CampaignList">
+          <div className="Title">Danh sách chiến dịch</div>
+          <div className="CampaignContainer">
+            {campaignList.map((campaign, index) => (
+              <CampaignItem
+                key={index}
+                name={campaign.name as string}
+                onDateChange={onDateChange}
+                onSubmit={onSubmit}
+              />
+            ))}
+          </div>
+        </div>
+        <Timeline data={state.timelineData} onRemove={onRemoveCampaign} />
       </div>
-      <Timeline data={state.timelineData} onRemove={onRemoveCampaign} />
     </div>
   );
 };

@@ -3,6 +3,8 @@
   flex-direction: column;
   border-bottom: 0 none;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+  background-color: #313942;
+  min-height: 100vh;
   .Brand {
     display: flex;
     align-items: center;
@@ -12,10 +14,10 @@
       font-size: 2rem;
       font-weight: 600;
       margin-left: 10px;
-      color: #109cf1;
+      color: #ececec;
       line-height: 2rem;
     }
-    border-bottom: 1px solid #ebeff2;
+    border-bottom: 1px solid #1f2429;
     width: 100%;
   }
 
@@ -27,12 +29,22 @@
       font-size: 1.2rem;
       font-weight: 400;
       padding: 10px 25px;
-      color: #484848;
+      color: #ececec;
       .MenuTitle {
         display: flex;
         justify-content: space-between;
         .AddButton {
           cursor: pointer;
+        }
+
+        .Text {
+          display: flex;
+
+          .Count {
+            margin-left: 10px;
+            padding: 1px 15px;
+            border-radius: 5px;
+          }
         }
       }
       .SubMenus {
@@ -40,6 +52,7 @@
         margin-left: 30px;
         span {
           font-weight: 500;
+          cursor: pointer;
         }
       }
       &.Active {
@@ -50,7 +63,7 @@
         font-weight: bolder;
       }
       i {
-        color: #bdbdbd;
+        color: #ececec;
       }
     }
   }

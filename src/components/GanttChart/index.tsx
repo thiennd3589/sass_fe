@@ -69,6 +69,9 @@ const GanttChart = (props: GanttChartProps) => {
       spacingLeft: 1,
       zoomType: "x",
       zoomKey: "alt",
+      style: {
+        borderRadius: "5px",
+      },
     },
 
     // title: {
@@ -159,7 +162,6 @@ const GanttChart = (props: GanttChartProps) => {
       },
     ],
   };
-
 
   return (
     <div className="GanttChart">

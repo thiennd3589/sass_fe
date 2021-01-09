@@ -9,7 +9,6 @@ import { State } from "redux-saga/reducers";
 import CustomButton from "element/Button";
 import TextBox from "element/TextBox";
 import RoadMapModal from "./RoadMapModal";
-import { query } from "utils";
 
 interface SidebarProps {
   menus: Menu[];
@@ -23,6 +22,8 @@ interface MenuItemProps {
   icon: SemanticICONS;
   type: string;
   subMenus: Obj[];
+  bg: string;
+  count: number;
 
   onSubmit?: () => void;
 }
@@ -33,6 +34,7 @@ interface MenuRef {
   icon: SemanticICONS;
   subMenus: Obj[];
   type: string;
+  bg: string;
 }
 
 const MenuItem = (props: MenuItemProps) => {
@@ -72,6 +74,14 @@ const MenuItem = (props: MenuItemProps) => {
         <div className="Text">
           <Icon name={props.icon} />
           <span>{props.text}</span>
+          <div
+            className="Count"
+            style={{
+              background: `linear-gradient(to right,${props.bg} 50%, rgba(255,255,255,1) 100%, rgba(0,212,255,1) 100%)`,
+            }}
+          >
+            {props.count}
+          </div>
         </div>
         <Modal
           dimmer
@@ -114,6 +124,7 @@ const Sidebar = (props: SidebarProps) => {
       icon: "sitemap",
       subMenus: [],
       type: "roadmap",
+      bg: "#EA2D28",
     },
     {
       text: "Campaign",
@@ -121,6 +132,7 @@ const Sidebar = (props: SidebarProps) => {
       icon: "road",
       subMenus: [],
       type: "campaign",
+      bg: "#0BB5A8",
     },
     {
       text: "Ads Report",
@@ -128,6 +140,7 @@ const Sidebar = (props: SidebarProps) => {
       icon: "audio description",
       subMenus: [],
       type: "report",
+      bg: "#F28840",
     },
   ]);
 
@@ -137,9 +150,7 @@ const Sidebar = (props: SidebarProps) => {
 
   useEffect(() => {
     console.log(userProject);
-  }, [userProject]);
 
-  useEffect(() => {
     if (userProject) {
       if (userProject.success) {
         menuRef.current[0].subMenus = (userProject.response as Obj)
@@ -156,7 +167,7 @@ const Sidebar = (props: SidebarProps) => {
       </div>
       <div className="Menu">
         {menuRef.current.map((item, index) => (
-          <MenuItem {...item} key={index} />
+          <MenuItem {...item} count={item.subMenus.length} key={index} />
         ))}
       </div>
     </div>
