@@ -1,0 +1,18 @@
+.CampaignModal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .DateTime {
+    .DateTimePicker {
+      width: 100%;
+      &:last-child {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .Submit{
+    margin-top: 20px;
+  }
+}

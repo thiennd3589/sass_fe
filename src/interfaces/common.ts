@@ -9,6 +9,7 @@ export interface Obj {
 export interface Action<T> {
   type: string;
   payload: T;
+  baseUrl?: string;
   showLoading?: boolean;
   hideLoading?: boolean;
   errorMessage?: string;
@@ -17,6 +18,7 @@ export interface Action<T> {
 }
 
 export interface Request<T> extends AnyAction {
+  baseUrl?: string;
   response?: { success: string; failure: string };
   payload?: T;
   showNotification?: boolean;

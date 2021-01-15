@@ -69,13 +69,18 @@ export function* doQuery(
   request?: Request<Obj>
 ) {
   let response;
+  const configBaseUrl = () => {
+    if (request?.baseUrl) {
+      return request.baseUrl;
+    } else return baseURL;
+  };
   try {
     if (method === REQUEST_METHOD.GET) {
       response = yield query(
         url,
         method,
         request?.payload,
-        baseURL,
+        configBaseUrl(),
         accessToken
       );
     } else {
@@ -83,7 +88,7 @@ export function* doQuery(
         url,
         method,
         undefined,
-        baseURL,
+        configBaseUrl(),
         accessToken,
         request?.payload
       );

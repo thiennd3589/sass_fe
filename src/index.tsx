@@ -3,9 +3,11 @@ import ReactDOM from "react-dom";
 import { toast } from "react-toastify";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import store from "redux-saga/store";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import ScrollToTop from "components/ScrollTop";
 import App from "./App";
+import store from "redux-saga/store";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import "semantic-ui-css/semantic.min.css";
@@ -16,9 +18,11 @@ toast.configure();
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <ScrollToTop>
-        <App />
-      </ScrollToTop>
+      <DndProvider backend={HTML5Backend}>
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
+      </DndProvider>
     </Router>
   </Provider>,
   document.getElementById("root")

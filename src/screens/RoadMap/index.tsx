@@ -1,3 +1,4 @@
+import Header from "components/Header";
 import Timeline from "components/Timeline";
 import CustomButton from "element/Button";
 import DateTimePicker from "element/DateTimePicker";
@@ -30,15 +31,6 @@ interface RoadMapState {
     y: number;
   };
 }
-
-const fakeData = [
-  { name: "Campaign 1" },
-  { name: "Campaign 2" },
-  { name: "Campaign 3" },
-  { name: "Campaign 4" },
-  { name: "Campaign 5" },
-  { name: "Campaign 6" },
-];
 
 const CampaignItem = (props: CampaignItemProps) => {
   const [open, setOpen] = useState(false);
@@ -89,7 +81,26 @@ const CampaignItem = (props: CampaignItemProps) => {
 
 const RoadMap = (props: RoadMapProps) => {
   const [state, setState] = useState<RoadMapState>({
-    timelineData: [],
+    timelineData: [
+      {
+        name: "Example Events",
+        start: new Date().getTime(),
+        end: new Date().getTime() + 1000000000,
+        y: 0,
+      },
+      {
+        name: "Example Events",
+        start: new Date().getTime() + 1500000000,
+        end: new Date().getTime() + 4000000000,
+        y: 1,
+      },
+      {
+        name: "Example Events",
+        start: new Date().getTime() + 3000000000,
+        end: new Date().getTime() + 5000000000,
+        y: 2,
+      },
+    ],
     openModal: false,
     campaign: {
       name: "",
@@ -99,9 +110,9 @@ const RoadMap = (props: RoadMapProps) => {
     },
   });
 
-  const { userProject } = useSelector(
+  const { userCampaign } = useSelector(
     (state: State) => ({
-      userProject: state.userProject,
+      userCampaign: state.userCampaign,
     }),
     shallowEqual
   );
@@ -134,12 +145,12 @@ const RoadMap = (props: RoadMapProps) => {
   };
 
   useEffect(() => {
-    if (userProject) {
-      if (userProject.success) {
-        setCampaignList((userProject.response as Obj).data as Obj[]);
+    if (userCampaign) {
+      if (userCampaign.success) {
+        setCampaignList((userCampaign.response as Obj).data as Obj[]);
       }
     }
-  }, [userProject]);
+  }, [userCampaign]);
 
   const onRemoveCampaign = (name: string) => {
     setState((prev) => ({
@@ -169,6 +180,7 @@ const RoadMap = (props: RoadMapProps) => {
 
   return (
     <div className="RoadMap">
+      <Header disableLogo />
       <div className="Background"></div>
       <div className="Content">
         <div className="CampaignList">
@@ -184,7 +196,11 @@ const RoadMap = (props: RoadMapProps) => {
             ))}
           </div>
         </div>
-        <Timeline data={state.timelineData} onRemove={onRemoveCampaign} />
+        <Timeline
+          data={state.timelineData}
+          onRemove={onRemoveCampaign}
+          // height={state.timelineData.length * 80 + 100}
+        />
       </div>
     </div>
   );

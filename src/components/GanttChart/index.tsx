@@ -3,7 +3,7 @@ import highchartsMore from "highcharts/highcharts-more.js";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts/highcharts-gantt";
 import draggable from "highcharts/modules/draggable-points";
-import noData from "highcharts/modules/no-data-to-display";
+// import noData from "highcharts/modules/no-data-to-display";
 import "./styles.scss";
 import { Obj } from "interfaces/common";
 import CustomButton from "element/Button";
@@ -11,11 +11,12 @@ import CustomButton from "element/Button";
 if (typeof Highcharts === "object") {
   highchartsMore(Highcharts);
   draggable(Highcharts);
-  noData(Highcharts);
+  // noData(Highcharts);
 }
 
 interface GanttChartProps {
   data: Obj[];
+  height?: number;
 
   onChange?: (e: any) => void;
   onRemove?: (name: string) => void;
@@ -24,6 +25,7 @@ interface GanttChartProps {
 interface GanttChartState {
   disabledRemove: boolean;
   selectedPoint: string | null;
+  redraw: Obj;
 }
 
 const day = 1000 * 60 * 60 * 24;
@@ -33,11 +35,10 @@ const GanttChart = (props: GanttChartProps) => {
   const [state, setState] = useState<GanttChartState>({
     disabledRemove: true,
     selectedPoint: null,
+    redraw: {},
   });
 
-  useEffect(() => {
-    console.log(state.selectedPoint);
-  }, [state]);
+  useEffect(() => {}, [state]);
 
   const onClick = (e: any) => {
     // Run in a timeout to allow the select to update
@@ -48,7 +49,6 @@ const GanttChart = (props: GanttChartProps) => {
       } else {
         count.current--;
       }
-      console.log(count.current);
       setState((prev) => ({
         ...prev,
         disabledRemove: count.current % 2 === 0 ? true : false,
@@ -62,6 +62,7 @@ const GanttChart = (props: GanttChartProps) => {
     props.onRemove &&
       state.selectedPoint &&
       props.onRemove(state.selectedPoint);
+    setState((prev) => ({ ...prev, disabledRemove: true }));
   };
 
   const option = {
@@ -69,6 +70,7 @@ const GanttChart = (props: GanttChartProps) => {
       spacingLeft: 1,
       zoomType: "x",
       zoomKey: "alt",
+      height: props.height,
       style: {
         borderRadius: "5px",
       },
@@ -96,9 +98,9 @@ const GanttChart = (props: GanttChartProps) => {
       },
     },
 
-    noData: {
-      useHtml: true,
-    },
+    // noData: {
+    //   useHtml: true,
+    // },
     scrollbar: {
       enabled: true,
     },
@@ -134,11 +136,13 @@ const GanttChart = (props: GanttChartProps) => {
           },
         },
       },
+      yAxis: {
+        min: 3,
+      },
     },
 
     yAxis: {
       type: "category",
-      min: 0,
     },
 
     xAxis: {
@@ -155,7 +159,7 @@ const GanttChart = (props: GanttChartProps) => {
 
     series: [
       {
-        data: props.data,
+        data: props.data ? props.data : [],
         // [
         //   { end: 1606928400000, name: "Test", start: 1606755600000, y: 0 },
         // ],
@@ -169,6 +173,7 @@ const GanttChart = (props: GanttChartProps) => {
         highcharts={Highcharts}
         options={option}
         constructorType={"ganttChart"}
+        callback={(chart: any) => console.log(chart)}
       />
       <CustomButton
         text="Remove"

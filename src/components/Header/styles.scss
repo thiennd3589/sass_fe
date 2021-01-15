@@ -1,0 +1,47 @@
+.Header {
+  padding: 5px 20px;
+  .Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.DisabledLogo {
+      justify-content: flex-end;
+    }
+    .LogoSection {
+      a {
+        display: flex;
+        align-items: center;
+        span {
+          margin-left: 10px;
+          font-size: 2.3rem;
+          line-height: 4rem;
+          font-weight: 600;
+        }
+      }
+      cursor: pointer;
+    }
+    .Menu {
+      .ui.menu {
+        .item {
+          font-family: "Roboto", sans-serif !important;
+          text-decoration: none;
+          color: #474747;
+          font-weight: 500;
+          transition: color 0.15s ease-out;
+          cursor: pointer;
+          padding: 0;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.AccountManage {
+  > div {
+    cursor: pointer;
+    &:hover {
+      font-weight: 500;
+    }
+  }
+}

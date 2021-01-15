@@ -8,4 +8,12 @@
   .RoadMap {
     flex: 7;
   }
+
+  > .Campaign {
+    flex: 7;
+  }
+}
+
+.ui.modal {
+  width: unset !important;
 }
