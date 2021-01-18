@@ -20,7 +20,7 @@ const StatusContainer = () => {
       clientId: uuid(),
       id: 1,
       title: "To do",
-      tasks: [],
+      tasks: [{ title: "Write this and write that" }],
     },
     {
       clientId: uuid(),
@@ -74,6 +74,9 @@ const StatusContainer = () => {
       hoverTaskIndex: number
     ) => {
       const dragTask = stageList[stageIndex].tasks![dragTaskIndex];
+      if (dragTask == null) {
+        return;
+      }
       if (stageIndex === hoverStageIndex) {
         setState(
           update(stageList, {
