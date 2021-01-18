@@ -1,17 +1,16 @@
 import Sidebar from "components/Sidebar";
-import { Global } from "global";
+import { Global, SCREEN } from "global";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Switch, Route } from "react-router-dom";
-import { State } from "redux-saga/reducers";
 import Campaign from "screens/Campaign";
 import Login from "screens/Login";
 import RoadMap from "screens/RoadMap";
 import "./App.scss";
 
+export const ScreenContext = React.createContext<any>(undefined);
+
 const App = () => {
   const [, redraw] = useState({});
-  const [screen, setScreen] = useState("roadmap");
+  const [screen, setScreen] = useState(SCREEN.ROADMAP);
   useEffect(() => {
     Global.user.token = localStorage.getItem("sassToken");
     Global.isAuthenticated = Global.user.token ? true : false;
@@ -20,9 +19,9 @@ const App = () => {
 
   const renderScreen = (name: string) => {
     switch (name) {
-      case "roadmap":
+      case SCREEN.ROADMAP:
         return <RoadMap />;
-      case "campaign":
+      case SCREEN.CAMPAIGN:
         return <Campaign />;
       default:
         return <RoadMap />;
@@ -30,16 +29,18 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      {Global.isAuthenticated ? (
-        <>
-          <Sidebar setScreen={(screen) => setScreen(screen)} />
-          {renderScreen(screen)}
-        </>
-      ) : (
-        <Login />
-      )}
-    </div>
+    <ScreenContext.Provider value={[screen, setScreen]}>
+      <div className="App">
+        {Global.isAuthenticated ? (
+          <>
+            <Sidebar />
+            {renderScreen(screen)}
+          </>
+        ) : (
+          <Login />
+        )}
+      </div>
+    </ScreenContext.Provider>
   );
 };
 

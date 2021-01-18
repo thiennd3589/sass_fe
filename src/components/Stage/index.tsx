@@ -19,58 +19,19 @@ const StatusContainer = () => {
     {
       clientId: uuid(),
       id: 1,
-      title: "Prepare",
-      tasks: [
-        {
-          clientId: uuid(),
-          title: "Write a cool JS library",
-        },
-        {
-          clientId: uuid(),
-          title: "Make it generic enough",
-        },
-      ],
+      title: "To do",
+      tasks: [],
     },
     {
       clientId: uuid(),
       id: 2,
       title: "In Progress",
-      tasks: [
-        {
-          clientId: uuid(),
-          title: "Write README",
-        },
-        {
-          clientId: uuid(),
-          title: "Create some examples",
-        },
-      ],
-    },
-    {
-      clientId: uuid(),
-      id: 3,
-      title: "Finish",
-      tasks: [
-        {
-          clientId: uuid(),
-          title:
-            "Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
-        },
-        {
-          clientId: uuid(),
-          title: "???",
-          stageId: 3,
-        },
-        {
-          clientId: uuid(),
-          title: "PROFIT",
-        },
-      ],
+      tasks: [],
     },
     {
       clientId: uuid(),
       id: 4,
-      title: "Finish",
+      title: "add",
       type: "add",
       tasks: [],
       disableMove: true,
@@ -80,21 +41,7 @@ const StatusContainer = () => {
       id: 5,
       title: "Done",
       disableMove: true,
-      tasks: [
-        {
-          clientId: uuid(),
-          title:
-            "Spam in Twitter and IRC to promote it (note that this element is taller than the others)",
-        },
-        {
-          clientId: uuid(),
-          title: "???",
-        },
-        {
-          clientId: uuid(),
-          title: "PROFIT",
-        },
-      ],
+      tasks: [],
     },
   ]);
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Menu, Obj } from "interfaces/common";
 import { Icon, Modal, SemanticICONS } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
@@ -15,20 +15,18 @@ import {
 import { State } from "redux-saga/reducers";
 import RoadMapModal from "./RoadMapModal";
 import CampaignModal from "./CampaignModal";
+import { ScreenContext } from "App";
+import { SCREEN } from "global";
 
-interface SidebarProps {
-  setScreen?: (name: string) => void;
-}
 
 interface MenuItemProps {
   text: string;
   icon: SemanticICONS;
-  type: string;
+  type: SCREEN;
   subMenus: Obj[];
   bg: string;
   count: number;
 
-  setScreen?: (name: string) => void;
   onSubmit?: () => void;
 }
 
@@ -37,14 +35,14 @@ interface MenuRef {
   value: string;
   icon: SemanticICONS;
   subMenus: Obj[];
-  type: string;
+  type: SCREEN;
   bg: string;
 }
 
 const MenuItem = (props: MenuItemProps) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const [visibleSub, setVisibleSub] = useState(false);
+  const [screen, setScreen] = useContext(ScreenContext);
   const {
     createProjectResult,
     currentProject,
@@ -102,26 +100,24 @@ const MenuItem = (props: MenuItemProps) => {
 
   const onClickSubMenu = (type: string, data: Obj) => {
     switch (type) {
-      case "roadmap":
+      case SCREEN.ROADMAP:
         dispatch(setCurrentProject(data));
         break;
-      case "campaign":
+      case SCREEN.CAMPAIGN:
         dispatch(setCurrentCampaign(data));
         break;
       default:
         break;
     }
-
-    props.setScreen && props.setScreen(type);
   };
 
   const setActiveSubMenu = (type: string, id: string | number) => {
     switch (type) {
-      case "roadmap":
+      case SCREEN.ROADMAP:
         if (currentProject && currentProject.id === id) {
           return "Active";
         } else return "";
-      case "campaign":
+      case SCREEN.CAMPAIGN:
         if (currentCampaign && currentCampaign.id === id) {
           return "Active";
         } else return "";
@@ -132,11 +128,11 @@ const MenuItem = (props: MenuItemProps) => {
 
   const renderContent = (type: string) => {
     switch (type) {
-      case "roadmap":
+      case SCREEN.ROADMAP:
         return (
           <RoadMapModal setOpen={() => setOpen(false)} onSubmit={addProject} />
         );
-      case "campaign":
+      case SCREEN.CAMPAIGN:
         return (
           <CampaignModal
             setOpen={() => setOpen(false)}
@@ -152,15 +148,14 @@ const MenuItem = (props: MenuItemProps) => {
   return (
     <div className="MenuItem">
       <div className="MenuTitle">
-        <div className="Text">
+        <div
+          className="Text"
+          onClick={() => {
+            setScreen(props.type);
+          }}
+        >
           <Icon name={props.icon} />
-          <span
-            onClick={() => {
-              setVisibleSub((prev) => !prev);
-            }}
-          >
-            {props.text}
-          </span>
+          <span>{props.text}</span>
           <div
             className="Count"
             style={{
@@ -188,7 +183,7 @@ const MenuItem = (props: MenuItemProps) => {
         </Modal>
       </div>
       <div className="SubMenus">
-        {visibleSub &&
+        {screen === props.type &&
           props.subMenus.map((sub, index) => (
             <span
               key={index}
@@ -208,7 +203,7 @@ const MenuItem = (props: MenuItemProps) => {
   );
 };
 
-const Sidebar = (props: SidebarProps) => {
+const Sidebar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [state, setState] = useState({
@@ -230,7 +225,7 @@ const Sidebar = (props: SidebarProps) => {
       value: "rm",
       icon: "sitemap",
       subMenus: [],
-      type: "roadmap",
+      type: SCREEN.ROADMAP,
       bg: "#EA2D28",
     },
     {
@@ -238,7 +233,7 @@ const Sidebar = (props: SidebarProps) => {
       value: "cp",
       icon: "road",
       subMenus: [],
-      type: "campaign",
+      type: SCREEN.CAMPAIGN,
       bg: "#0BB5A8",
     },
     {
@@ -246,7 +241,7 @@ const Sidebar = (props: SidebarProps) => {
       value: "ar ",
       icon: "audio description",
       subMenus: [],
-      type: "report",
+      type: SCREEN.REPORT,
       bg: "#F28840",
     },
   ]);
@@ -307,12 +302,7 @@ const Sidebar = (props: SidebarProps) => {
       </div>
       <div className="Menu">
         {menuRef.current.map((item, index) => (
-          <MenuItem
-            {...item}
-            count={item.subMenus.length}
-            setScreen={props.setScreen}
-            key={index}
-          />
+          <MenuItem {...item} count={item.subMenus.length} key={index} />
         ))}
       </div>
     </div>

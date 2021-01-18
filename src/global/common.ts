@@ -5,6 +5,12 @@ export enum LANG {
   VI = "vi",
 }
 
+export enum SCREEN {
+  ROADMAP = "roadmap",
+  CAMPAIGN = "campaign",
+  REPORT = "report",
+}
+
 interface GlobalInterface {
   menus: Menu[];
   //User
