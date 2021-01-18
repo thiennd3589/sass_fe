@@ -1,6 +1,8 @@
 .Campaign {
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   .Header {
     width: 100%;
@@ -22,6 +24,7 @@
     margin: 0 15px;
     padding: 0 30px;
     width: 100%;
-    height: 100%;
+    max-width: 76vw;
+    overflow-y: auto;
   }
 }

@@ -1,5 +1,5 @@
 import Header from "components/Header";
-import StatusContainer from "components/StatusContainer";
+import Stage from "components/Stage";
 import React from "react";
 import "./styles.scss";
 
@@ -9,7 +9,7 @@ const Campaign = () => {
       <Header disableLogo />
       <div className="Background"></div>
       <div className="Content">
-        <StatusContainer />
+        <Stage />
       </div>
     </div>
   );

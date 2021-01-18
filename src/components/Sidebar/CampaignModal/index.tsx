@@ -1,5 +1,4 @@
 import CustomButton from "element/Button";
-import DateTimePicker from "element/DateTimePicker";
 import TextBox from "element/TextBox";
 import { Obj } from "interfaces/common";
 import React, { useState } from "react";
@@ -17,8 +16,6 @@ const CampaignModal = (props: CampaignModalProps) => {
       errorMessage: "",
       showError: false,
     },
-    // startDate: "",
-    // endDate: "",
   });
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,28 +29,6 @@ const CampaignModal = (props: CampaignModalProps) => {
     }));
   };
 
-  // const onDateChange = (
-  //   e: React.SyntheticEvent<HTMLElement, Event>,
-  //   data: any,
-  //   name: string
-  // ) => {
-  //   const date = (data.value as string).split("-");
-  //   const dateData = new Date(
-  //     parseInt(date[2]),
-  //     parseInt(date[1]) - 1,
-  //     parseInt(date[0]) + 1
-  //   );
-  //   dateData.setUTCHours(0);
-  //   dateData.setUTCMinutes(0);
-  //   dateData.setUTCSeconds(0);
-  //   dateData.setUTCMilliseconds(0);
-
-  //   setState((prev) => ({
-  //     ...prev,
-  //     [name]: dateData.getTime(),
-  //   }));
-  // };
-
   return (
     <div className="CampaignModal">
       <TextBox
@@ -63,21 +38,6 @@ const CampaignModal = (props: CampaignModalProps) => {
         placeholder="SEO Advertise"
         onChange={onChange}
       />
-      {/* 
-      <div className="DateTime">
-        <DateTimePicker
-          label="Ngày bắt đầu"
-          onChange={(e, data) => {
-            onDateChange(e, data, "startDate");
-          }}
-        />
-        <DateTimePicker
-          label="Ngày kết thúc"
-          onChange={(e, data) => {
-            onDateChange(e, data, "endDate");
-          }}
-        />
-      </div> */}
       <div className="Submit">
         <CustomButton
           text="Cancel"
@@ -91,8 +51,6 @@ const CampaignModal = (props: CampaignModalProps) => {
             props.onSubmit &&
               props.onSubmit({
                 name: state.name.value,
-                // startDate: state.startDate,
-                // endDate: state.endDate,
               });
             props.setOpen();
           }}
