@@ -32,7 +32,6 @@ interface TaskContainerState {
 }
 
 const TaskContainer = (props: TaskContainerProps) => {
-  // console.log(props.stageIndex,props.tasks)
   const [, moveTask, addTask] = useContext(StageContext);
   const [open, setOpen] = useState(false);
   const [state, setState] = useState<TaskContainerState>({

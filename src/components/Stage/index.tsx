@@ -6,6 +6,7 @@ import { Stage, Task } from "interfaces/common";
 
 import "./styles.scss";
 import { Obj } from "interfaces/common";
+import ProgressBar from "components/ProgressBar";
 
 export interface Item {
   id: number;
@@ -179,6 +180,7 @@ const StatusContainer = () => {
   return (
     <StageContext.Provider value={[moveCard, moveTask, addTask, addStage]}>
       <div className="StatusContainer">
+        <ProgressBar />
         <div className="StageContent">
           {stageList.map((stage, i) => renderStage(stage, i))}
         </div>
