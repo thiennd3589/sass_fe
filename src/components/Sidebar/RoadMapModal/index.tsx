@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import CustomButton from "element/Button";
 import TextBox from "element/TextBox";
-import React, { useState } from "react";
 import "./styles.scss";
 
 interface RoadMapModalProps {

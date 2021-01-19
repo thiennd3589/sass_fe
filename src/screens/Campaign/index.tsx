@@ -1,6 +1,5 @@
 import Header from "components/Header";
 import Stage from "components/Stage";
-import React from "react";
 import "./styles.scss";
 
 const Campaign = () => {

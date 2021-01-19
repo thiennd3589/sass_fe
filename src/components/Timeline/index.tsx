@@ -1,7 +1,7 @@
 import React from "react";
 import GanttChart from "components/GanttChart";
-import "./styles.scss";
 import { Obj } from "interfaces/common";
+import "./styles.scss";
 
 interface TimelineProps {
   data: Obj[];

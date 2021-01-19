@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Icon, Menu, Popup } from "semantic-ui-react";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import "./styles.scss";
 import { Global } from "../../global";
+import "./styles.scss";
 
 interface HeaderProps {
   disableLogo?: boolean;

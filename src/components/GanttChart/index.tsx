@@ -3,10 +3,9 @@ import highchartsMore from "highcharts/highcharts-more.js";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts/highcharts-gantt";
 import draggable from "highcharts/modules/draggable-points";
-// import noData from "highcharts/modules/no-data-to-display";
-import "./styles.scss";
-import { Obj } from "interfaces/common";
 import CustomButton from "element/Button";
+import { Obj } from "interfaces/common";
+import "./styles.scss";
 
 if (typeof Highcharts === "object") {
   highchartsMore(Highcharts);

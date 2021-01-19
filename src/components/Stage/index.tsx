@@ -1,12 +1,10 @@
-import StageCard from "components/Stage/StageCard";
 import React, { useCallback, useState } from "react";
-import { v4 as uuid } from "uuid";
 import update from "immutability-helper";
-import { Stage, Task } from "interfaces/common";
-
-import "./styles.scss";
-import { Obj } from "interfaces/common";
+import { v4 as uuid } from "uuid";
 import ProgressBar from "components/ProgressBar";
+import StageCard from "components/Stage/StageCard";
+import { Stage, Task, Obj } from "interfaces/common";
+import "./styles.scss";
 
 export interface Item {
   id: number;
@@ -21,7 +19,7 @@ const StatusContainer = () => {
       clientId: uuid(),
       id: 1,
       title: "To do",
-      tasks: [{ title: "Write this and write that" }],
+      tasks: [{ title: "Write this and write that", clientId: uuid() }],
     },
     {
       clientId: uuid(),
@@ -75,9 +73,9 @@ const StatusContainer = () => {
       hoverTaskIndex: number
     ) => {
       const dragTask = stageList[stageIndex].tasks![dragTaskIndex];
-      if (dragTask == null) {
-        return;
-      }
+      // if (dragTask == null) {
+      //   return;
+      // }
       if (stageIndex === hoverStageIndex) {
         setState(
           update(stageList, {
@@ -146,7 +144,6 @@ const StatusContainer = () => {
 
   const addStage = useCallback(
     (stage) => {
-      console.log(stage);
       setState(
         update(stageList, {
           $splice: [[stageList.length - 2, 0, stage]],

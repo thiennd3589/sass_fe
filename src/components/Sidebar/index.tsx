@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Menu, Obj } from "interfaces/common";
-import { Icon, Modal, SemanticICONS } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
-import "./styles.scss";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Icon, Modal, SemanticICONS } from "semantic-ui-react";
+import { SCREEN } from "global";
+import RoadMapModal from "./RoadMapModal";
+import CampaignModal from "./CampaignModal";
 import {
   createCampaign,
   createProject,
@@ -13,10 +14,9 @@ import {
   setCurrentProject,
 } from "redux-saga/global-actions";
 import { State } from "redux-saga/reducers";
-import RoadMapModal from "./RoadMapModal";
-import CampaignModal from "./CampaignModal";
 import { ScreenContext } from "App";
-import { SCREEN } from "global";
+import { Obj } from "interfaces/common";
+import "./styles.scss";
 
 
 interface MenuItemProps {

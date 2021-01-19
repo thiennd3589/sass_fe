@@ -1,14 +1,14 @@
+import { useContext, useState } from "react";
+import { DropTargetMonitor, useDrop } from "react-dnd";
+import { Icon, Modal } from "semantic-ui-react";
 import { StageContext } from "components/Stage";
 import CustomButton from "element/Button";
 import DateTimePicker from "element/DateTimePicker";
 import TextBox from "element/TextBox";
-import { ITEM_TYPES } from "global";
-import { DragTaskItem, Obj, Task } from "interfaces/common";
-import { useContext, useState } from "react";
-import { DropTargetMonitor, useDrop } from "react-dnd";
-import { Icon, Modal } from "semantic-ui-react";
-import "./styles.scss";
 import TaskCard from "./TaskCard";
+import { DragTaskItem, Task } from "interfaces/common";
+import { ITEM_TYPES } from "global";
+import "./styles.scss";
 
 interface TaskContainerProps {
   tasks: Task[];

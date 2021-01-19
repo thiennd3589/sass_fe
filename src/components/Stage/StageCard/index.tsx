@@ -1,15 +1,15 @@
 import React, { useContext, useRef, useState } from "react";
 import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
-import { ITEM_TYPES } from "global";
 import { XYCoord } from "dnd-core";
-import TaskContainer from "components/Task";
-import { DragStageItem, Obj, Task } from "interfaces/common";
-import { StageContext } from "..";
-import "./styles.scss";
+import { v4 as uuid } from "uuid";
+import { ITEM_TYPES } from "global";
 import { Icon, Modal } from "semantic-ui-react";
+import TaskContainer from "components/Task";
 import TextBox from "element/TextBox";
 import CustomButton from "element/Button";
-import { v4 as uuid } from "uuid";
+import { StageContext } from "..";
+import { DragStageItem, Task } from "interfaces/common";
+import "./styles.scss";
 
 export interface StageCardProps {
   clientId: any;
@@ -153,10 +153,10 @@ const StageCard: React.FC<StageCardProps> = ({
           </div>
         }
       >
-        <Modal.Header>Thêm bảng mới</Modal.Header>
+        <Modal.Header>Thêm thẻ mới</Modal.Header>
         <Modal.Content className="AddStage">
           <TextBox
-            label="Tên bảng"
+            label="Tên thẻ"
             name="title"
             value={state.title.value}
             placeholder=""

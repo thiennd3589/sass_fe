@@ -1,7 +1,6 @@
 import { AnyAction } from "redux";
 import { ToastOptions } from "react-toastify";
 import { SemanticICONS } from "semantic-ui-react/dist/commonjs/generic";
-import { ITEM_TYPES } from "global";
 
 export interface Obj {
   [key: string]: {} | undefined | null;

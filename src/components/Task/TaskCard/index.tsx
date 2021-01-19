@@ -1,5 +1,3 @@
-import "./styles.scss";
-import { DragTaskItem, Task as ITask } from "interfaces/common";
 import { useContext, useRef, useState } from "react";
 import {
   DragSourceMonitor,
@@ -10,13 +8,14 @@ import {
 } from "react-dnd";
 import { ITEM_TYPES } from "global";
 import { StageContext } from "components/Stage";
+import { DragTaskItem, Task as ITask } from "interfaces/common";
+import "./styles.scss";
 
 interface TaskProps extends ITask {
   id: number | string;
   index: number;
   stageIndex: number;
   clientStageId: number | string;
-  // moveTask: (dragTaskIndex: number, hoverTaskIndex: number) => void;
 }
 
 const TaskCard: React.FC<TaskProps> = (props: TaskProps) => {

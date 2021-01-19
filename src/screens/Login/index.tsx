@@ -1,12 +1,12 @@
-import CustomButton from "element/Button";
-import TextBox from "element/TextBox";
-import { Global } from "global";
-import { Obj } from "interfaces/common";
 import React, { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { State } from "redux-saga/reducers";
+import { Global } from "global";
+import CustomButton from "element/Button";
+import TextBox from "element/TextBox";
 import { logIn, signUp } from "./actions";
+import { State } from "redux-saga/reducers";
+import { Obj } from "interfaces/common";
 import "./styles.scss";
 
 interface LoginState {

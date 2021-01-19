@@ -1,12 +1,12 @@
+import React, { useEffect, useState } from "react";
+import { shallowEqual, useSelector } from "react-redux";
+import { Modal } from "semantic-ui-react";
 import Header from "components/Header";
 import Timeline from "components/Timeline";
 import CustomButton from "element/Button";
 import DateTimePicker from "element/DateTimePicker";
-import { Obj } from "interfaces/common";
-import React, { useEffect, useState } from "react";
-import { shallowEqual, useSelector } from "react-redux";
 import { State } from "redux-saga/reducers";
-import { Modal } from "semantic-ui-react";
+import { Obj } from "interfaces/common";
 import "./styles.scss";
 
 interface RoadMapProps {}
