@@ -55,3 +55,13 @@ export const CurrentCampaign = (state: Obj = {}, action: Obj) => {
       return state;
   }
 };
+
+//USER
+
+export const QUERY_USER_INFO_SUCCESS = "QUERY_USER_INFO_SUCCESS";
+export const QUERY_USER_INFO_FAILURE = "QUERY_USER_INFO_FAILURE";
+
+export const UserInfo = createReducer(
+  QUERY_USER_INFO_SUCCESS,
+  QUERY_USER_INFO_FAILURE
+);

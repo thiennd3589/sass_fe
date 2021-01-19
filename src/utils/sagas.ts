@@ -30,7 +30,7 @@ export const configAxios = (
           Authorization: `Bearer ${
             Global.user.token
               ? Global.user.token
-              : localStorage.getItem("accessToken")
+              : localStorage.getItem("sassToken")
           }`,
         },
         params,

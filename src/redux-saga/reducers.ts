@@ -7,9 +7,12 @@ import {
   CurrentProject,
   UserCampaign,
   UserProject,
+  UserInfo,
 } from "./global-reducers";
 
 export const state = combineReducers({
+  //User
+  userInfo: UserInfo,
   //Login
   loginResult: LogIn,
   signUpResult: SignUp,

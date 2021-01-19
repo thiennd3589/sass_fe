@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Icon, Menu, Popup } from "semantic-ui-react";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import { Global } from "../../global";
+import React, { useState, useContext } from "react";
+import { Divider, Icon, Menu, Popup } from "semantic-ui-react";
+import { ScreenContext } from "App";
+import { Link, useHistory } from "react-router-dom";
+import { Global, SCREEN } from "../../global";
 import "./styles.scss";
 
 interface HeaderProps {
@@ -9,16 +10,11 @@ interface HeaderProps {
 }
 
 const Header = (props: HeaderProps) => {
-  const location = useLocation();
   const history = useHistory();
-  const [, redraw] = useState({});
+  const [, setScreen,setIsAuthenticated] = useContext(ScreenContext);
 
   const onLogout = () => {
-    localStorage.clear();
-    Global.user.token = null;
-    Global.isAuthenticated = false;
-    history.push("/");
-    redraw({});
+    setIsAuthenticated(false);
   };
 
   return (
@@ -40,9 +36,17 @@ const Header = (props: HeaderProps) => {
             {Global.user.token && (
               <Menu.Item>
                 <Popup trigger={<Icon name="user" />} on="click">
-                  <Popup.Header>Account</Popup.Header>
+                  <Popup.Header>Tài khoản</Popup.Header>
+                  <Divider />
                   <Popup.Content className="AccountManage">
-                    <div onClick={onLogout}>Log Out</div>
+                    <div onClick={onLogout}>Đăng xuất</div>
+                    <div
+                      onClick={() => {
+                        setScreen(SCREEN.ACCOUNT);
+                      }}
+                    >
+                      Quản lý tài khoản
+                    </div>
                   </Popup.Content>
                 </Popup>
               </Menu.Item>

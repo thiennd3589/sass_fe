@@ -1,5 +1,8 @@
+//USER
 export const LOGIN = "LOGIN";
 export const SIGN_UP = "SIGN_UP";
+export const UPDATE_USER_INFO = "UPDATE_USER_INFO";
+export const QUERY_USER_INFO = "QUERY_USER_INFO";
 
 //PROJECT
 export const CREATE_PROJECT = "CREATE_PROJECT";
@@ -10,3 +13,7 @@ export const SET_CURRENT_PROJECT = "SET_CURRENT_PROJECT";
 export const CREATE_CAMPAIGN = "CREATE_CAMPAIGN";
 export const QUERY_CAMPAIGN = "QUERY_CAMPAIGN";
 export const SET_CURRENT_CAMPAIGN = "SET_CURRENT_CAMPAIGN";
+
+//BOARD
+export const QUERY_BOARD = "QUERY_BOARD";
+export const CREATE_BOARD = "CREATE_BOARD";

@@ -8,6 +8,8 @@ import { logIn, signUp } from "./actions";
 import { State } from "redux-saga/reducers";
 import { Obj } from "interfaces/common";
 import "./styles.scss";
+import { useContext } from "react";
+import { ScreenContext } from "App";
 
 interface LoginState {
   name: { value: string; errorMessage: string; showError: boolean };
@@ -21,6 +23,7 @@ interface LoginState {
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [, , setIsAuthenticated] = useContext(ScreenContext);
   const [state, setState] = useState<LoginState>({
     name: {
       value: "",
@@ -69,8 +72,7 @@ const Login = () => {
 
         localStorage.setItem("sassToken", token);
         //Redirect;
-        history.push("/");
-        return;
+        setIsAuthenticated(true);
       } else {
         setState((prevState) => ({
           ...prevState,

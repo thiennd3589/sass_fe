@@ -3,6 +3,7 @@ import {
   CREATE_CAMPAIGN,
   CREATE_PROJECT,
   QUERY_CAMPAIGN,
+  QUERY_USER_INFO,
   QUERY_USER_PROJECT,
   SET_CURRENT_CAMPAIGN,
   SET_CURRENT_PROJECT,
@@ -14,6 +15,8 @@ import {
   CREATE_PROJECT_SUCCESS,
   QUERY_CAMPAIGN_FAILURE,
   QUERY_CAMPAIGN_SUCCESS,
+  QUERY_USER_INFO_FAILURE,
+  QUERY_USER_INFO_SUCCESS,
   QUERY_USER_PROJECT_FAILURE,
   QUERY_USER_PROJECT_SUCCESS,
 } from "./global-reducers";
@@ -71,3 +74,14 @@ export const setCurrentCampaign = (payload: Obj) => ({
   type: SET_CURRENT_CAMPAIGN,
   payload,
 });
+
+//USER
+export const queryUserInfo = () => {
+  return {
+    type: QUERY_USER_INFO,
+    response: {
+      success: QUERY_USER_INFO_SUCCESS,
+      failure: QUERY_USER_INFO_FAILURE,
+    },
+  };
+};

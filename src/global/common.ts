@@ -9,6 +9,7 @@ export enum SCREEN {
   ROADMAP = "roadmap",
   CAMPAIGN = "campaign",
   REPORT = "report",
+  ACCOUNT = "account",
 }
 
 interface GlobalInterface {

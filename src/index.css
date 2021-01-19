@@ -1,11 +1,15 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 14px;
+}
+
+.ui.popup > .header {
+  font-family: "Open Sans", sans-serif !important;
 }
 
 body {

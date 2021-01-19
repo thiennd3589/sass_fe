@@ -1,5 +1,5 @@
+import Board from "components/Board";
 import Header from "components/Header";
-import Stage from "components/Stage";
 import "./styles.scss";
 
 const Campaign = () => {
@@ -8,7 +8,7 @@ const Campaign = () => {
       <Header disableLogo />
       <div className="Background"></div>
       <div className="Content">
-        <Stage />
+        <Board />
       </div>
     </div>
   );
