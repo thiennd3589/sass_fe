@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/sass-fe/static/css/main.2c5a6925.chunk.css",
-    "main.js": "/sass-fe/static/js/main.2ac6452d.chunk.js",
-    "main.js.map": "/sass-fe/static/js/main.2ac6452d.chunk.js.map",
-    "runtime-main.js": "/sass-fe/static/js/runtime-main.c0b24266.js",
-    "runtime-main.js.map": "/sass-fe/static/js/runtime-main.c0b24266.js.map",
-    "static/css/2.c450de93.chunk.css": "/sass-fe/static/css/2.c450de93.chunk.css",
-    "static/js/2.8c92f713.chunk.js": "/sass-fe/static/js/2.8c92f713.chunk.js",
-    "static/js/2.8c92f713.chunk.js.map": "/sass-fe/static/js/2.8c92f713.chunk.js.map",
-    "index.html": "/sass-fe/index.html",
-    "static/css/2.c450de93.chunk.css.map": "/sass-fe/static/css/2.c450de93.chunk.css.map",
-    "static/css/main.2c5a6925.chunk.css.map": "/sass-fe/static/css/main.2c5a6925.chunk.css.map",
-    "static/js/2.8c92f713.chunk.js.LICENSE.txt": "/sass-fe/static/js/2.8c92f713.chunk.js.LICENSE.txt",
-    "static/media/semantic.min.css": "/sass-fe/static/media/outline-icons.ddae9b1b.woff",
-    "static/media/styles.scss": "/sass-fe/static/media/roadmap.a93f476c.jpg"
+    "main.css": "/sass_fe/static/css/main.9ea0b39d.chunk.css",
+    "main.js": "/sass_fe/static/js/main.2ac6452d.chunk.js",
+    "main.js.map": "/sass_fe/static/js/main.2ac6452d.chunk.js.map",
+    "runtime-main.js": "/sass_fe/static/js/runtime-main.3551232e.js",
+    "runtime-main.js.map": "/sass_fe/static/js/runtime-main.3551232e.js.map",
+    "static/css/2.c4985bb4.chunk.css": "/sass_fe/static/css/2.c4985bb4.chunk.css",
+    "static/js/2.8c92f713.chunk.js": "/sass_fe/static/js/2.8c92f713.chunk.js",
+    "static/js/2.8c92f713.chunk.js.map": "/sass_fe/static/js/2.8c92f713.chunk.js.map",
+    "index.html": "/sass_fe/index.html",
+    "static/css/2.c4985bb4.chunk.css.map": "/sass_fe/static/css/2.c4985bb4.chunk.css.map",
+    "static/css/main.9ea0b39d.chunk.css.map": "/sass_fe/static/css/main.9ea0b39d.chunk.css.map",
+    "static/js/2.8c92f713.chunk.js.LICENSE.txt": "/sass_fe/static/js/2.8c92f713.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/sass_fe/static/media/outline-icons.ddae9b1b.woff",
+    "static/media/styles.scss": "/sass_fe/static/media/roadmap.a93f476c.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c0b24266.js",
-    "static/css/2.c450de93.chunk.css",
+    "static/js/runtime-main.3551232e.js",
+    "static/css/2.c4985bb4.chunk.css",
     "static/js/2.8c92f713.chunk.js",
-    "static/css/main.2c5a6925.chunk.css",
+    "static/css/main.9ea0b39d.chunk.css",
     "static/js/main.2ac6452d.chunk.js"
   ]
 }
