@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.42a1c7f5.chunk.css",
+    "main.js": "/my-app/static/js/main.2ac6452d.chunk.js",
+    "main.js.map": "/my-app/static/js/main.2ac6452d.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.7aa16e06.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.7aa16e06.js.map",
+    "static/css/2.bd9e4907.chunk.css": "/my-app/static/css/2.bd9e4907.chunk.css",
+    "static/js/2.8c92f713.chunk.js": "/my-app/static/js/2.8c92f713.chunk.js",
+    "static/js/2.8c92f713.chunk.js.map": "/my-app/static/js/2.8c92f713.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "static/css/2.bd9e4907.chunk.css.map": "/my-app/static/css/2.bd9e4907.chunk.css.map",
+    "static/css/main.42a1c7f5.chunk.css.map": "/my-app/static/css/main.42a1c7f5.chunk.css.map",
+    "static/js/2.8c92f713.chunk.js.LICENSE.txt": "/my-app/static/js/2.8c92f713.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/my-app/static/media/outline-icons.ddae9b1b.woff",
+    "static/media/styles.scss": "/my-app/static/media/roadmap.a93f476c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7aa16e06.js",
+    "static/css/2.bd9e4907.chunk.css",
+    "static/js/2.8c92f713.chunk.js",
+    "static/css/main.42a1c7f5.chunk.css",
+    "static/js/main.2ac6452d.chunk.js"
+  ]
+}
