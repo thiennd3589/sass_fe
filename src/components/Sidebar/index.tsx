@@ -18,7 +18,6 @@ import { ScreenContext } from "App";
 import { Obj } from "interfaces/common";
 import "./styles.scss";
 
-
 interface MenuItemProps {
   text: string;
   icon: SemanticICONS;
@@ -264,9 +263,11 @@ const Sidebar = () => {
   useEffect(() => {
     if (userProject) {
       if (userProject.success) {
-        const userProjectData = (userProject.response as Obj).data as Obj[];
+        const userProjectData = ((userProject.response as Obj).data as Obj)
+          .data as Obj[];
         menuRef.current[0].subMenus = userProjectData;
         state.allowSetCurrentProject &&
+          userProjectData.length > 0 &&
           dispatch(setCurrentProject(userProjectData[0]));
       }
       setState((prev) => ({
@@ -278,9 +279,11 @@ const Sidebar = () => {
 
     if (userCampaign) {
       if (userCampaign.success) {
-        const userCampaignData = (userCampaign.response as Obj).data as Obj[];
+        const userCampaignData = ((userCampaign.response as Obj).data as Obj)
+          .data as Obj[];
         menuRef.current[1].subMenus = userCampaignData;
         state.allowSetCurrentCampaign &&
+          userCampaignData.length > 0 &&
           dispatch(setCurrentCampaign(userCampaignData[0]));
       }
       setState((prev) => ({

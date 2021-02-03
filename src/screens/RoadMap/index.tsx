@@ -146,8 +146,9 @@ const RoadMap = (props: RoadMapProps) => {
 
   useEffect(() => {
     if (userCampaign) {
+      console.log(userCampaign)
       if (userCampaign.success) {
-        setCampaignList((userCampaign.response as Obj).data as Obj[]);
+        setCampaignList(((userCampaign.response as Obj).data as Obj).data as Obj[]);
       }
     }
   }, [userCampaign]);
@@ -177,6 +178,8 @@ const RoadMap = (props: RoadMapProps) => {
       }));
     }
   };
+
+  console.log(campaignList)
 
   return (
     <div className="RoadMap">

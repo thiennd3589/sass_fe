@@ -66,7 +66,7 @@ const Login = () => {
       if (loginResult.success) {
         //Save Token
         const loginResponse = loginResult.response as Obj;
-        const token = (loginResponse.data as Obj).accessToken as string;
+        const token = (loginResponse.data as Obj).data as string;
         Global.user.token = token;
         Global.isAuthenticated = true;
 

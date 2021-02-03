@@ -57,6 +57,7 @@ export const query = async (
   data?: Obj
 ) => {
   const config = configAxios(url, method, params, baseURL, accessToken, data);
+  console.log(config)
   return Axios(config);
 };
 
